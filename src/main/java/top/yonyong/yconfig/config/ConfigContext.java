@@ -1,0 +1,46 @@
+package top.yonyong.yconfig.config;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * @Describtion config container
+ * @Author yonyong
+ * @Date 2020/7/13 15:40
+ * @Version 1.0.0
+ **/
+@Data
+@Builder(toBuilder = true)
+@AllArgsConstructor
+@NoArgsConstructor
+public class ConfigContext {
+
+    /**
+     * config key-val map
+     */
+    private List<TblConfig> vals;
+
+    /**
+     * env type
+     */
+    private String group;
+
+    /**
+     * get config
+     * @param key
+     * @return
+     */
+    public String getValue(String key){
+        final List<TblConfig> collect = vals.stream()
+                .filter(tblConfig -> tblConfig.getKeyName().equals(key))
+                .collect(Collectors.toList());
+        if (null == collect || collect.size() == 0)
+            return null;
+        return collect.get(0).getKeyValue();
+    }
+}

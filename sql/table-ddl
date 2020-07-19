@@ -1,0 +1,13 @@
+CREATE TABLE `tbl_configcenter` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `key_name` varchar(255) DEFAULT NULL COMMENT '配置名称',
+  `key_value` varchar(255) DEFAULT NULL COMMENT '默认配置值',
+  `key_group` varchar(255) DEFAULT 'DEFAULT_ENV' COMMENT '分类',
+  `description` varchar(255) DEFAULT NULL COMMENT '备注',
+  `insert_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `creator` varchar(255) DEFAULT NULL COMMENT '创建人',
+  `modifier` varchar(255) DEFAULT NULL COMMENT '修改人',
+  `type` varchar(10) DEFAULT NULL COMMENT '是否是不可删改配置',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=1033 DEFAULT CHARSET=utf8mb4;

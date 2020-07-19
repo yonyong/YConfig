@@ -1,0 +1,38 @@
+server:
+  servlet:
+    context-path: /yConfig
+  port: 8080
+
+# DataSource Config
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://host:port/db_name?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: username
+    password: password
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+# MyBatis Config properties
+mybatis:
+#  type-aliases-package:top.yonyong.model
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+
+config:
+  center:
+    group: TEST_ENV
