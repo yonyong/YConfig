@@ -1,4 +1,4 @@
-*_[EN](https://github.com/yonyong/YConfig/edit/master/readme.md) | 中文_*
+*_[EN](https://github.com/yonyong/YConfig/blob/master/readme.md) | 中文_*
 
 # YConfig - 非侵入性配置中心插件
 
