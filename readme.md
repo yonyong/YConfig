@@ -1,4 +1,4 @@
-*_EN | [中文](https://github.com/yonyong/YConfig/edit/master/readme_zh.md)_*
+*_EN | [中文](https://github.com/yonyong/YConfig/blob/master/readme_zh.md)_*
 
 # YConfig - Non-invasive Configuration Center Plugin
 
