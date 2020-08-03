@@ -1,7 +1,6 @@
 package top.yonyong.yconfig.config.aop;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -9,8 +8,10 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import top.yonyong.yconfig.config.ConfigContext;
 import top.yonyong.yconfig.utils.DataConverter;
 import top.yonyong.yconfig.utils.MySpringContext;
+import top.yonyong.yconfig.utils.StringUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -28,7 +29,7 @@ import java.lang.reflect.Method;
 public class SystemConfigAop {
 
     @Autowired
-    top.yonyong.yconfig.config.ConfigContext applicationConfigContext;
+    ConfigContext applicationConfigContext;
 
     @Autowired
     MySpringContext mySpringContext;
@@ -38,6 +39,8 @@ public class SystemConfigAop {
 
     @Before("pointcut()")
     public void before(JoinPoint joinPoint){
+        initStatus();
+
         //get Method
         final MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
@@ -53,6 +56,9 @@ public class SystemConfigAop {
             final MyConfig annotation = declaredField.getAnnotation(MyConfig.class);
             if (null != annotation && StringUtils.isNotBlank(annotation.value())){
                 String val = getVal(annotation.value());
+                if (StringUtils.isBlank(val))
+                    throw new RuntimeException("val can not be null");
+
                 try {
                     buildMethod(clazz,bean,declaredField,val);
                 } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
@@ -141,5 +147,15 @@ public class SystemConfigAop {
             Method m = clz.getMethod("set" + name, java.util.Date.class);
             m.invoke(obj, DataConverter.convert(propertiedValue));
         }
+    }
+
+    //check if init
+    private boolean initStatus() {
+        boolean rs = null != applicationConfigContext.getVals() && applicationConfigContext.getVals().size() != 0;
+        if (!rs)
+            throw new RuntimeException("you must need to init config container" +
+                    ":you can implement the method 'int setVals(List<Config> vals)' " +
+                    "in class AbstractYConfigHandler to init config container");
+        return true;
     }
 }

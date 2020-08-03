@@ -1,6 +1,5 @@
 package top.yonyong.yconfig.utils;
 
-import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -75,7 +74,8 @@ public class MySpringContext implements ApplicationContextAware, DisposableBean 
      * 断言 Context 已经注入
      */
     private static void assertContextInjected() {
-        Validate.validState(applicationContext != null, "applicationContext 属性未注入，请在 spring-context.xml 配置中定义 MySpringContext");
+        if (null == applicationContext)
+            throw new RuntimeException("applicationContext 属性未注入，请在 spring-context.xml 配置中定义 MySpringContext");
     }
 
     /**
