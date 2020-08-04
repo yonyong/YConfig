@@ -9,11 +9,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Describtion YConfig interface
- * @Author yonyong
+ * @author  yonyong
  **/
 @Component
-public class DefaultYConfigHandlerFactory extends AbstractYConfigHandler {
+public class DefaultYConfigHandlerFactory extends AbstractYConfigHandler{
 
     private List<Config> v;
 

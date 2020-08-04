@@ -10,10 +10,7 @@ import org.springframework.context.annotation.Scope;
 import top.yonyong.yconfig.utils.StringUtils;
 
 /**
- * @Describtion manual auto inject bean
- * @Author yonyong
- * @Date 2020/7/13 15:55
- * @Version 1.0.0
+ * @author  yonyong
  **/
 @Configuration
 @ConditionalOnClass(ConfigContext.class)

@@ -10,7 +10,6 @@ import java.lang.annotation.*;
 
 /**
  * @author yonyong
- * @apiNote use with aop
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

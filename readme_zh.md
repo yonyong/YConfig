@@ -5,10 +5,20 @@
 ## 介绍
 > 与nacos配置中心相似，可以动态的crud属性的值并实时更新。
 
+## 使用场景
+> 高频率修改配置（如频繁改变第三方接口地址等）且不希望代码有较大幅度修改
+
 ## 优势：
-> 支持注解注入配置，用法简单，最大程度降低代码的侵入性。
+> 1.支持注解注入配置，用法简单
+> 2.最大程度降低代码的侵入性。
+> 3.配置容器来源自由配置
+> 4.配置增删改查基础功能兼具
+> 5.轻量级插件，拒绝代码臃肿
 
 ## 使用
+### 0.前言
+
+> 本插件核心为一个容器-applicationConfigContext，使用本插件需要先初始化容器将配置信息查询出并置入容器，剩余其他操作接很简单。详情可看[示例](https://github.com/yonyong/yconfig-demo)
 
 ### 1.引入依赖
 ```xml
@@ -26,6 +36,13 @@
 </dependency>
 ```
 ### 2.引入本插件jar包或依赖
+```xml
+<dependency>
+    <groupId>top.yoynong</groupId>
+    <artifactId>YConfig</artifactId>
+    <version>1.1.0.RELEASE</version>
+</dependency>
+```
 
 ### 3.配置文件写好配置环境
 ```properties

@@ -1,13 +1,13 @@
 package top.yonyong.yconfig.config;
 
 import top.yonyong.yconfig.api.YConfigHandleAction;
+import top.yonyong.yconfig.config.DefaultYConfigHandlerFactory;
+import top.yonyong.yconfig.config.Config;
 
 import java.util.List;
 
 /**
- * @Author yonyong
- * @Date 2020/8/3 15:22
- * @Version 1.0.0
+ * @author  yonyong
  **/
 public abstract class AbstractYConfigHandler implements YConfigHandleAction {
     private List<Config> v;

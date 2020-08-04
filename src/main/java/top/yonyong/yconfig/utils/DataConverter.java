@@ -35,7 +35,7 @@ public class DataConverter {
 
 	/**
 	 * 功能描述：格式化日期
-	 * 
+	 *
 	 * @param dateStr
 	 *            String 字符型日期
 	 * @param format

@@ -2,16 +2,14 @@ package top.yonyong.yconfig.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Describtion config container
- * @Author yonyong
- * @Date 2020/7/13 15:40
- * @Version 1.0.0
+ * @author  yonyong
  **/
 @Builder(toBuilder = true)
 @AllArgsConstructor
@@ -28,11 +26,6 @@ public class ConfigContext {
      */
     private String group;
 
-    /**
-     * get config
-     * @param key
-     * @return
-     */
     public String getValue(String key){
         final List<Config> collect = vals.stream()
                 .filter(tblConfig -> tblConfig.getKeyName().equals(key))

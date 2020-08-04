@@ -18,11 +18,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * @Describtion config service aop
- * @Author yonyong
- * @Date 2020/7/17 11:21
- * @Version 1.0.0
- **/
+ * @author yonyong
+ */
 @Aspect
 @Component
 @Slf4j

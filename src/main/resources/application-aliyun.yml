@@ -1,8 +1,0 @@
-server:
-  servlet:
-    context-path: /yConfig
-  port: 8080
-
-config:
-  center:
-    group: TEST_ENV

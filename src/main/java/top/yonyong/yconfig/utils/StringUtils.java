@@ -1,11 +1,8 @@
 package top.yonyong.yconfig.utils;
 
 /**
- * @Describtion StringUtils
- * @Author yonyong
- * @Date 2020/8/3 14:13
- * @Version 1.0.0
- **/
+ * @author yonyong
+ */
 public class StringUtils {
     public static boolean isBlank(CharSequence cs) {
         int strLen;

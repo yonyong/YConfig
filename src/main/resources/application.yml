@@ -1,5 +1,0 @@
-#dev、pro、test分别为：开发、生产、测试环境配置
-#开发环境
-spring:
-  profiles:
-    active: aliyun

@@ -5,10 +5,22 @@
 ## Introduction
 > Similar to the nacos configuration center, the value of the crud attribute can be dynamically updated and updated in real time.
 
+## Usage scenarios
+> 高频率修改配置（如频繁改变第三方接口地址等）且不希望代码有较大幅度修改
+ 高频率修改配置（如频繁改变第三方接口地址等）且不希望代码有较大幅度修改
+ Modify the configuration frequently (such as changing the address of the third-party interface frequently) and do not want to change the code greatly
+
 ## Advantage
-> Support annotation injection configuration, simple usage, minimize code intrusion.
+> 1. Support annotation injection configuration, easy to use
+> 2. Minimize the intrusion of code.
+> 3. The source of configuration container can be configured freely
+> 4. Add, delete, modify and query basic functions
+> 5. Lightweight plug-in, reject code bloated
 
 ## Use
+
+### 0.Preface
+> The core of this plug-in is a container - applicationconfigcontext. To use this plug-in, you need to initialize the container, query out the configuration information and put it into the container. The rest operations are very simple. Details can be found in [examples](https://github.com/yonyong/yconfig-demo)
 
 ### 1.Introducing dependencies
 ```xml
@@ -26,6 +38,13 @@ If you use AOP configuration, you need to add additional dependencies
 </dependency>
 ```
 ### 2.Import the plug-in jar package or dependency
+```xml
+<dependency>
+    <groupId>top.yoynong</groupId>
+    <artifactId>YConfig</artifactId>
+    <version>1.1.0.RELEASE</version>
+</dependency>
+```
 
 ### 3.Configuration file write configuration environment
 ```properties
