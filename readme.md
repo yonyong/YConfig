@@ -6,9 +6,7 @@
 > Similar to the nacos configuration center, the value of the crud attribute can be dynamically updated and updated in real time.
 
 ## Usage scenarios
-> 高频率修改配置（如频繁改变第三方接口地址等）且不希望代码有较大幅度修改
- 高频率修改配置（如频繁改变第三方接口地址等）且不希望代码有较大幅度修改
- Modify the configuration frequently (such as changing the address of the third-party interface frequently) and do not want to change the code greatly
+> Modify the configuration frequently (such as changing the address of the third-party interface frequently) and do not want to change the code greatly
 
 ## Advantage
 > 1. Support annotation injection configuration, easy to use
